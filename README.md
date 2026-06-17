@@ -21,15 +21,14 @@ ZABAP_TOOLS/
 ├── LICENSE                   # Apache License 2.0
 ├── README.md                 # 本文件
 └── src/                      # ABAP 源代码根目录
-    ├── package.devc.xml      # 根包定义（TOOLS）
     ├── alv/                  # ALV 相关工具
-    │   ├── package.devc.xml
-    │   ├── z_sflight_alv.prog.abap
-    │   └── z_sflight_alv.prog.xml
-    └── enhancement/          # 增强相关工具
-        ├── package.devc.xml
-        ├── z_exit_help.prog.abap
-        └── z_exit_help.prog.xml
+    │   └── z_sflight_alv.prog.abap
+    ├── enhancement/          # 增强相关工具
+    │   └── z_exit_help.prog.abap
+    ├── job/                  # 后台作业相关工具
+    │   └── z_get_spool.prog.abap
+    └── screen/               # 屏幕相关工具
+        └── z_screen_buttons.prog.abap
 ```
 
 ## 现有工具一览
@@ -38,6 +37,8 @@ ZABAP_TOOLS/
 | --- | --- | --- |
 | `ZABAP_TOOLS_ALV` | `Z_SFLIGHT_ALV` | 一个简单的 ALV 查询报表 |
 | `ZABAP_TOOLS_ENHANCEMENT` | `Z_EXIT_HELP` | 查找增强/出口（User Exit）的辅助工具 |
+| `ZABAP_TOOLS_JOB` | `Z_GET_SPOOL` | 读取 Spool 假脱机文件内容的工具 |
+| `ZABAP_TOOLS_SCREEN` | `Z_SCREEN_BUTTONS` | 带自定义按钮的选择屏幕示例，可调用事务码或视图维护 |
 
 ## 新建包的规则
 
@@ -157,6 +158,20 @@ cd ZABAP_TOOLS
 - 📊 性能分析、SQL 跟踪辅助
 - 🔐 权限、传输请求、版本管理相关脚本
 - 📦 OO 封装的基础工具类（字符串、日期、Internal Table 操作等）
+
+## 推荐 abapGit 项目
+
+除了本仓库，以下 abapGit 项目也非常值得关注：
+
+| 项目 | 简介 | 仓库地址 |
+| --- | --- | --- |
+| **abapGit** | ABAP 版本控制系统核心工具，本仓库依赖它进行代码管理 | [abapGit/abapGit: Git client for ABAP](https://github.com/abapGit/abapGit) |
+| abap2UI5      | 基于 ABAP 开发的UI5界面                             | [abap2UI5](https://github.com/abap2UI5/abap2UI5)             |
+| abap2xlsx | 基于 ABAP 生成 Excel 文件的经典库，支持 xlsx 格式 | [sapmentors/abap2xlsx](https://github.com/sapmentors/abap2xlsx) |
+| JSON2ABAPType | 根据 JSON 结构自动生成 ABAP 类型定义                  | [fidley/JSON2ABAPType](https://github.com/fidley/json2abaptype) |
+| DYNAMIC_DATA | 根据 JSON 或配置表动态创建嵌套数据结构                | [Jack-Liang/DYNAMIC_DATA](https://github.com/Jack-Liang/DYNAMIC_DATA) |
+
+> 这些项目均可通过 abapGit 直接安装到 SAP 系统中使用。更多项目可以查看 [dotabap.org](https://dotabap.org/)
 
 ## 版本与兼容
 
