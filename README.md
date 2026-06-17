@@ -25,6 +25,9 @@ ZABAP_TOOLS/
     │   └── z_sflight_alv.prog.abap
     ├── enhancement/          # 增强相关工具
     │   └── z_exit_help.prog.abap
+    ├── http/                 # HTTP 接口请求工具
+    │   ├── z_http_get.prog.abap
+    │   └── z_http_post.prog.abap
     ├── job/                  # 后台作业相关工具
     │   └── z_get_spool.prog.abap
     └── screen/               # 屏幕相关工具
@@ -37,6 +40,8 @@ ZABAP_TOOLS/
 | --- | --- | --- |
 | `ZABAP_TOOLS_ALV` | `Z_SFLIGHT_ALV` | 一个简单的 ALV 查询报表 |
 | `ZABAP_TOOLS_ENHANCEMENT` | `Z_EXIT_HELP` | 查找增强/出口（User Exit）的辅助工具 |
+| `ZABAP_TOOLS_HTTP` | `Z_HTTP_GET` | 使用 `cl_http_client` 发送 HTTP GET 请求的示例 |
+| `ZABAP_TOOLS_HTTP` | `Z_HTTP_POST` | 使用 `cl_http_client` 发送带 JSON 请求体的 HTTP POST 请求示例 |
 | `ZABAP_TOOLS_JOB` | `Z_GET_SPOOL` | 读取 Spool 假脱机文件内容的工具 |
 | `ZABAP_TOOLS_SCREEN` | `Z_SCREEN_BUTTONS` | 带自定义按钮的选择屏幕示例，可调用事务码或视图维护 |
 
@@ -158,6 +163,45 @@ cd ZABAP_TOOLS
 - 📊 性能分析、SQL 跟踪辅助
 - 🔐 权限、传输请求、版本管理相关脚本
 - 📦 OO 封装的基础工具类（字符串、日期、Internal Table 操作等）
+
+## 路线图
+
+为方便后续维护与贡献者参与，将待补充的工具按"使用频率"与"覆盖广度"分为三批，按优先级依次推进。
+
+### 第一批：高频通用工具（强烈建议优先补齐）
+
+- [ ] `string` — 字符串处理工具：分割、拼接、替换、全/半角转换、与内表互转
+- [ ] `date` — 日期时间工具：月初/月末/季末/年末、工作日计算、时间戳转换
+- [ ] `table` — 内表操作工具：去重、合并、交/差集、分组汇总、动态排序与查询
+- [ ] `file` — 文件读写工具：应用服务器文件、前端下载、CSV 解析
+- [ ] `message` — 消息处理工具：消息收集与统一抛出、弹窗消息封装
+
+### 第二批：业务常用工具
+
+- [ ] `excel` — Excel 处理：内表导出 xlsx、CSV 与内表互转
+- [ ] `mail` — 邮件发送：内表附件、HTML 正文、多收件人
+- [ ] `number` — 数字与金额处理：金额转中文大写、千分位、身份证/银行卡校验
+- [ ] `authority` — 权限检查：事务码权限、对象权限的统一封装
+- [ ] `bapi` — BAPI / RFC 通用调用：统一错误处理、Commit / Rollback
+
+### 第三批：进阶与企业级工具
+
+- [ ] `dynamic` — 动态编程：动态内表/结构生成、动态 SQL、动态 ALV
+- [ ] `json` — JSON 解析与生成：字符串/内表/嵌套结构互转
+- [ ] `xml` — XML 解析与生成
+- [ ] `log` — 日志封装：应用日志（`BAL_LOG_*`）封装、业务日志表
+- [ ] `popup` — 弹窗与 F4 帮助：多选弹窗、通用搜索帮助
+- [ ] `idoc` — IDoc 状态查询与手动触发
+- [ ] `smartforms` / `adobeforms` — 表单工具：常用打印模板、PDF 下载
+- [ ] `transport` — 传输请求工具：查询/复制/释放
+- [ ] `numberrange` — 编号范围工具：带缓存的通用编号获取
+- [ ] `test` — 测试辅助：单元测试模板、数据生成器
+
+### 约定
+
+- 每个新包建议先以"工具类 + 示例程序"双文件形式呈现，例如 `ZCL_STRING_UTIL` 类 + `Z_STRING_DEMO` 程序。
+- 工具代码头需注明：作者、创建日期、所需 SAP BASIS 版本、依赖的类/表。
+- 鼓励通过 PR 认领：在 Issue 或 PR 中回复"认领 XX 包"后即可开始开发，避免重复劳动。
 
 ## 推荐 abapGit 项目
 
